@@ -36,15 +36,21 @@ public class CursoActivity extends AppCompatActivity {
         cursoViewModel = new ViewModelProvider(this).get(CursoViewModel.class);
         cursoViewModel.getAllCursos().observe(this, adapter::submitList);
 
-        // Implementação do FloatingActionButton para abrir a atividade de adição/edição de cursos.
         FloatingActionButton buttonAddCurso = findViewById(R.id.button_add_curso);
         buttonAddCurso.setOnClickListener(v -> {
             Intent intent = new Intent(CursoActivity.this, AddEditCursoActivity.class);
             startActivityForResult(intent, ADD_CURSO_REQUEST);
         });
+
+        adapter.setOnItemClickListener(curso -> {
+            Intent intent = new Intent(CursoActivity.this, AddEditCursoActivity.class);
+            intent.putExtra(AddEditCursoActivity.EXTRA_TITLE, curso.getNomeCurso());
+            intent.putExtra(AddEditCursoActivity.EXTRA_PRIORITY, curso.getQtdeHoras());
+            intent.putExtra(CursoAdapter.EXTRA_CURSO_ID, curso.getCursoId());
+            startActivityForResult(intent, ADD_CURSO_REQUEST);
+        });
     }
 
-    // Implementação do menu de opções
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu, menu);
@@ -57,28 +63,27 @@ public class CursoActivity extends AppCompatActivity {
 
         if (itemId == R.id.delete_all_cursos) {
             cursoViewModel.deleteAllCursos();
-            Toast.makeText(this, "Todos os cursos deletados", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Todos os cursos foram deletados", Toast.LENGTH_SHORT).show();
             return true;
         } else {
             return super.onOptionsItemSelected(item);
         }
     }
 
-    // Processando o resultado da atividade de adição/edição de cursos.
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == ADD_CURSO_REQUEST && resultCode == RESULT_OK) {
-            String title = data.getStringExtra(AddEditCursoActivity.EXTRA_TITLE);
-            int priority = data.getIntExtra(AddEditCursoActivity.EXTRA_PRIORITY, 1);
+        if (requestCode == ADD_CURSO_REQUEST) {
+            if (resultCode == RESULT_OK) {
+                String title = data.getStringExtra(AddEditCursoActivity.EXTRA_TITLE);
+                int priority = data.getIntExtra(AddEditCursoActivity.EXTRA_PRIORITY, 1);
 
-            Curso curso = new Curso(title, priority);
-            cursoViewModel.insert(curso);
+                Curso curso = new Curso(title, priority);
+                cursoViewModel.insert(curso);
 
-            Toast.makeText(this, "Curso salvo", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(this, "Curso não salvo", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Curso salvo", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 }

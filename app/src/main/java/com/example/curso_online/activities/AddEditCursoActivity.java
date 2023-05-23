@@ -1,5 +1,6 @@
 package com.example.curso_online.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -17,6 +18,7 @@ import com.example.curso_online.viewmodels.CursoViewModel;
 public class AddEditCursoActivity extends AppCompatActivity {
     public static final String EXTRA_TITLE = "com.example.curso_online.EXTRA_TITLE";
     public static final String EXTRA_PRIORITY = "com.example.curso_online.EXTRA_PRIORITY";
+    public static final String EXTRA_CURSO_ID = "com.example.curso_online.EXTRA_CURSO_ID";
     private CursoViewModel cursoViewModel;
     private EditText editTextTitle;
     private NumberPicker numberPickerPriority;
@@ -34,6 +36,14 @@ public class AddEditCursoActivity extends AppCompatActivity {
         numberPickerPriority.setMaxValue(100);
 
         cursoViewModel = new ViewModelProvider(this).get(CursoViewModel.class);
+
+        String title = getIntent().getStringExtra(EXTRA_TITLE);
+        int priority = getIntent().getIntExtra(EXTRA_PRIORITY, 1);
+
+        if (title != null) {
+            editTextTitle.setText(title);
+            numberPickerPriority.setValue(priority);
+        }
     }
 
     public void saveCurso(View v) {
@@ -45,8 +55,17 @@ public class AddEditCursoActivity extends AppCompatActivity {
             return;
         }
 
-        Curso novoCurso = new Curso(title, priority);
-        cursoViewModel.insert(novoCurso);
+        if (getIntent().hasExtra(EXTRA_CURSO_ID)) {
+            int cursoId = getIntent().getIntExtra(EXTRA_CURSO_ID, -1);
+            if (cursoId != -1) {
+                Curso cursoExistente = new Curso(title, priority);
+                cursoExistente.setCursoId(cursoId);
+                cursoViewModel.update(cursoExistente);
+            }
+        } else {
+            Curso novoCurso = new Curso(title, priority);
+            cursoViewModel.insert(novoCurso);
+        }
 
         Toast.makeText(this, "Curso salvo com sucesso.", Toast.LENGTH_SHORT).show();
         finish();

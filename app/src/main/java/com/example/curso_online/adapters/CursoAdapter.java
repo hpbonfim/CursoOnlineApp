@@ -13,7 +13,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.curso_online.R;
 import com.example.curso_online.entities.Curso;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class CursoAdapter extends ListAdapter<Curso, CursoAdapter.CursoHolder> {
+    public static final String EXTRA_CURSO_ID = "com.example.curso_online.EXTRA_CURSO_ID";
+    private OnItemClickListener listener;
 
     public CursoAdapter() {
         super(DIFF_CALLBACK);
@@ -47,6 +52,10 @@ public class CursoAdapter extends ListAdapter<Curso, CursoAdapter.CursoHolder> {
         holder.textViewDescription.setText(String.valueOf(currentCurso.getQtdeHoras()));
     }
 
+    public Curso getCursoAt(int position) {
+        return getItem(position);
+    }
+
     class CursoHolder extends RecyclerView.ViewHolder {
         private TextView textViewTitle;
         private TextView textViewDescription;
@@ -55,6 +64,21 @@ public class CursoAdapter extends ListAdapter<Curso, CursoAdapter.CursoHolder> {
             super(itemView);
             textViewTitle = itemView.findViewById(R.id.text_view_title);
             textViewDescription = itemView.findViewById(R.id.text_view_description);
+
+            itemView.setOnClickListener(v -> {
+                int position = getAdapterPosition();
+                if (listener != null && position != RecyclerView.NO_POSITION) {
+                    listener.onItemClick(getItem(position));
+                }
+            });
         }
+    }
+
+    public interface OnItemClickListener {
+        void onItemClick(Curso curso);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.listener = listener;
     }
 }
