@@ -1,5 +1,4 @@
 package com.example.curso_online.entities;
-
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -7,9 +6,12 @@ import androidx.room.PrimaryKey;
 public class Curso {
     @PrimaryKey(autoGenerate = true)
     private int cursoId;
+
     private String nomeCurso;
+
     private int qtdeHoras;
 
+    // Construtor, getters e setters
     public Curso(String nomeCurso, int qtdeHoras) {
         this.nomeCurso = nomeCurso;
         this.qtdeHoras = qtdeHoras;
@@ -27,7 +29,15 @@ public class Curso {
         return nomeCurso;
     }
 
+    public void setNomeCurso(String nomeCurso) {
+        this.nomeCurso = nomeCurso;
+    }
+
     public int getQtdeHoras() {
         return qtdeHoras;
+    }
+
+    public void setQtdeHoras(int qtdeHoras) {
+        this.qtdeHoras = qtdeHoras;
     }
 }

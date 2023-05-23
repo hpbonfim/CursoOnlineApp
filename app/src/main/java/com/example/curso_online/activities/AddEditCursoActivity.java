@@ -1,10 +1,8 @@
 package com.example.curso_online.activities;
-
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
-import android.widget.NumberPicker;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,62 +10,46 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.curso_online.R;
 import com.example.curso_online.entities.Curso;
-import com.example.curso_online.viewmodels.CursoViewModel;
-
+import com.example.curso_online.viewmodel.CursoViewModel;
 
 public class AddEditCursoActivity extends AppCompatActivity {
-    public static final String EXTRA_TITLE = "com.example.curso_online.EXTRA_TITLE";
-    public static final String EXTRA_PRIORITY = "com.example.curso_online.EXTRA_PRIORITY";
-    public static final String EXTRA_CURSO_ID = "com.example.curso_online.EXTRA_CURSO_ID";
-    private CursoViewModel cursoViewModel;
-    private EditText editTextTitle;
-    private NumberPicker numberPickerPriority;
 
+    private EditText editTextNome, editTextHoras;
+    private Button buttonSave;
+    private CursoViewModel cursoViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_edit_curso);
 
-        editTextTitle = findViewById(R.id.edit_text_title);
-        numberPickerPriority = findViewById(R.id.number_picker_priority);
+        editTextNome = findViewById(R.id.edit_text_title);
+        editTextHoras = findViewById(R.id.edit_text_hours);
+        buttonSave = findViewById(R.id.button_save);
 
-        numberPickerPriority.setMinValue(1);
-        numberPickerPriority.setMaxValue(100);
+        cursoViewModel = new ViewModelProvider(this, new ViewModelProvider.AndroidViewModelFactory(getApplication())).get(CursoViewModel.class);
 
-        cursoViewModel = new ViewModelProvider(this).get(CursoViewModel.class);
-
-        String title = getIntent().getStringExtra(EXTRA_TITLE);
-        int priority = getIntent().getIntExtra(EXTRA_PRIORITY, 1);
-
-        if (title != null) {
-            editTextTitle.setText(title);
-            numberPickerPriority.setValue(priority);
-        }
+        buttonSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                saveCurso();
+            }
+        });
     }
 
-    public void saveCurso(View v) {
-        String title = editTextTitle.getText().toString();
-        int priority = numberPickerPriority.getValue();
+    private void saveCurso() {
+        String nomeCurso = editTextNome.getText().toString();
+        int qtdeHoras = Integer.parseInt(editTextHoras.getText().toString());
 
-        if (title.trim().isEmpty()) {
-            Toast.makeText(this, "Por favor, insira um título.", Toast.LENGTH_SHORT).show();
+        if (nomeCurso.trim().isEmpty() || qtdeHoras == 0) {
+            Toast.makeText(this, "Please insert a name and hours", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        if (getIntent().hasExtra(EXTRA_CURSO_ID)) {
-            int cursoId = getIntent().getIntExtra(EXTRA_CURSO_ID, -1);
-            if (cursoId != -1) {
-                Curso cursoExistente = new Curso(title, priority);
-                cursoExistente.setCursoId(cursoId);
-                cursoViewModel.update(cursoExistente);
-            }
-        } else {
-            Curso novoCurso = new Curso(title, priority);
-            cursoViewModel.insert(novoCurso);
-        }
+        Curso curso = new Curso(nomeCurso, qtdeHoras);
+        cursoViewModel.insert(curso);
 
-        Toast.makeText(this, "Curso salvo com sucesso.", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Course saved", Toast.LENGTH_SHORT).show();
         finish();
     }
 }

@@ -1,7 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Cursos Online</string>
-    <string name="title">Título</string>
-    <string name="save">Salvar</string>
-    <string name="delete_all">Deletar Todos os Cursos</string>
-    <string name="add_curso_button_description">Adicionar novo curso</string>
+    <string name="app_name">Curso Online</string>
+    <string name="manage_courses">Manage Courses</string>
+    <string name="course_name_hint">Course Name</string>
+    <string name="hours_hint">Hours</string>
+    <string name="save_course">Save Course</string>
+    <string name="add_course">Add Course</string>
+    <string name="on_changed">OnChanged</string>
+    <string name="please_insert">Please insert a name and hours</string>
+    <string name="course_saved">Course saved</string>
 </resources>
+

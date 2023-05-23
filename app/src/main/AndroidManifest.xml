@@ -13,21 +13,15 @@
         android:theme="@style/Theme.Curso_online"
         tools:targetApi="31">
 
-        <activity
-            android:name=".activities.CursoActivity"
+        <activity android:name=".activities.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <!-- Aqui está a nova atividade que você precisa adicionar -->
-        <activity
-            android:name=".activities.AddEditCursoActivity"
-            android:exported="false">
-        </activity>
+        <activity android:name=".activities.AddEditCursoActivity" />
+        <activity android:name=".activities.CursoActivity" />
 
     </application>
 
