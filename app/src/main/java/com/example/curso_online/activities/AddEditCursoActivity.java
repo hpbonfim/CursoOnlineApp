@@ -1,4 +1,5 @@
 package com.example.curso_online.activities;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -18,6 +19,15 @@ public class AddEditCursoActivity extends AppCompatActivity {
     private Button buttonSave;
     private CursoViewModel cursoViewModel;
 
+    public static final String EXTRA_ID =
+            "com.example.curso_online.EXTRA_ID";
+    public static final String EXTRA_NOME =
+            "com.example.curso_online.EXTRA_NOME";
+    public static final String EXTRA_HORAS =
+            "com.example.curso_online.EXTRA_HORAS";
+    public static final int EDIT_CURSO_REQUEST = 2;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +37,16 @@ public class AddEditCursoActivity extends AppCompatActivity {
         editTextHoras = findViewById(R.id.edit_text_hours);
         buttonSave = findViewById(R.id.button_save);
 
-        cursoViewModel = new ViewModelProvider(this, new ViewModelProvider.AndroidViewModelFactory(getApplication())).get(CursoViewModel.class);
+        cursoViewModel = new ViewModelProvider(this, (ViewModelProvider.Factory) new ViewModelProvider.AndroidViewModelFactory(getApplication())).get(CursoViewModel.class);
+
+        Intent intent = getIntent();
+        if (intent.hasExtra(EXTRA_ID)) {
+            setTitle("Edit Course");
+            editTextNome.setText(intent.getStringExtra(EXTRA_NOME));
+            editTextHoras.setText(String.valueOf(intent.getIntExtra(EXTRA_HORAS, 0)));
+        } else {
+            setTitle("Add Course");
+        }
 
         buttonSave.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,9 +66,24 @@ public class AddEditCursoActivity extends AppCompatActivity {
         }
 
         Curso curso = new Curso(nomeCurso, qtdeHoras);
-        cursoViewModel.insert(curso);
 
-        Toast.makeText(this, "Course saved", Toast.LENGTH_SHORT).show();
+        Intent data = new Intent();
+        data.putExtra(EXTRA_NOME, nomeCurso);
+        data.putExtra(EXTRA_HORAS, qtdeHoras);
+
+        int id = getIntent().getIntExtra(EXTRA_ID, -1);
+        if (id != -1) {
+            curso.setCursoId(id);
+            cursoViewModel.update(curso);
+            data.putExtra(EXTRA_ID, id);
+            Toast.makeText(this, "Course updated", Toast.LENGTH_SHORT).show();
+        } else {
+            cursoViewModel.insert(curso);
+            Toast.makeText(this, "Course saved", Toast.LENGTH_SHORT).show();
+        }
+
+        setResult(RESULT_OK, data);
         finish();
     }
+
 }

@@ -9,5 +9,9 @@
     <string name="on_changed">OnChanged</string>
     <string name="please_insert">Please insert a name and hours</string>
     <string name="course_saved">Course saved</string>
+    <string name="edit_course">Edit Course</string>
+    <string name="course_updated">Course updated</string>
+    <string name="course_not_saved">Course not saved</string>
+    <string name="course_cant_be_updated">Course can\'t be updated</string>
 </resources>
 
