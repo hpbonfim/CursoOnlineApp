@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Cursos Online</string>
+    <string name="title">Título</string>
+    <string name="save">Salvar</string>
+    <string name="delete_all">Deletar Todos os Cursos</string>
+    <string name="add_curso_button_description">Adicionar novo curso</string>
+</resources>
