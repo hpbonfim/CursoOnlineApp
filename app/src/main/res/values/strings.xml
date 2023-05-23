@@ -1,17 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Curso Online</string>
-    <string name="manage_courses">Manage Courses</string>
-    <string name="course_name_hint">Course Name</string>
-    <string name="hours_hint">Hours</string>
-    <string name="save_course">Save Course</string>
-    <string name="add_course">Add Course</string>
-    <string name="on_changed">OnChanged</string>
-    <string name="please_insert">Please insert a name and hours</string>
-    <string name="course_saved">Course saved</string>
-    <string name="edit_course">Edit Course</string>
-    <string name="course_updated">Course updated</string>
-    <string name="course_not_saved">Course not saved</string>
-    <string name="course_cant_be_updated">Course can\'t be updated</string>
+    <string name="manage_courses">Gerenciar Cursos</string>
+    <string name="course_name_hint">Nome do Curso</string>
+    <string name="hours_hint">Horas</string>
+    <string name="save_course">Salvar Curso</string>
+    <string name="add_course">Adicionar Curso</string>
+    <string name="on_changed">Alterado</string>
+    <string name="please_insert">Por favor, insira um nome e horas</string>
+    <string name="course_saved">Curso salvo</string>
+    <string name="edit_course">Editar Curso</string>
+    <string name="course_updated">Curso atualizado</string>
+    <string name="course_not_saved">Curso não salvo</string>
+    <string name="course_cant_be_updated">Não é possível atualizar o curso</string>
+    <string name="course_deleted">Curso excluído</string>
+    <string name="all_courses_deleted">Todos os cursos excluídos</string>
+    <string name="delete_all_courses">Excluir Todos os Cursos</string>
+    <string name="delete_course">Excluir Curso</string>
+    <string name="manage_students">Gerenciar Alunos</string>
+    <string name="delete_all_students">Excluir Todos os Alunos</string>
+    <string name="no">Não</string>
+    <string name="yes">Sim</string>
+    <string name="delete_course_message">Tem certeza que deseja deletar este curso?</string>
+    <string name="delete_all_courses_message">Deletar todos os cursos?</string>
 </resources>
-

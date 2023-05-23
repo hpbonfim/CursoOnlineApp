@@ -9,18 +9,18 @@
         android:id="@+id/edit_text_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Course Name" />
+        android:hint="@string/course_name_hint" />
 
     <EditText
         android:id="@+id/edit_text_hours"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Hours" />
+        android:hint="@string/hours_hint" />
 
     <Button
         android:id="@+id/button_save"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Save Course" />
+        android:text="@string/save_course" />
 
 </LinearLayout>

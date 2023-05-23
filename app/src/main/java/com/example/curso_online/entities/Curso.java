@@ -6,12 +6,9 @@ import androidx.room.PrimaryKey;
 public class Curso {
     @PrimaryKey(autoGenerate = true)
     private int cursoId;
-
     private String nomeCurso;
-
     private int qtdeHoras;
 
-    // Construtor, getters e setters
     public Curso(String nomeCurso, int qtdeHoras) {
         this.nomeCurso = nomeCurso;
         this.qtdeHoras = qtdeHoras;

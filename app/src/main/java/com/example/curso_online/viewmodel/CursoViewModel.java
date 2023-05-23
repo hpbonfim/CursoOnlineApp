@@ -1,4 +1,5 @@
 package com.example.curso_online.viewmodel;
+
 import android.app.Application;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
@@ -9,28 +10,40 @@ import com.example.curso_online.repository.CursoRepository;
 import java.util.List;
 
 public class CursoViewModel extends AndroidViewModel {
-    private CursoRepository mRepository;
-    private LiveData<List<Curso>> mAllCursos;
+    private CursoRepository repository;
+    private LiveData<List<Curso>> allCursos;
 
-    public CursoViewModel (Application application) {
+    public CursoViewModel(Application application) {
         super(application);
-        mRepository = new CursoRepository(application);
-        mAllCursos = mRepository.getAllCursos();
+        repository = new CursoRepository(application);
+        allCursos = repository.getAllCursos();
     }
 
     public LiveData<List<Curso>> getAllCursos() {
-        return mAllCursos;
+        return allCursos;
     }
 
     public void insert(Curso curso) {
-        mRepository.insert(curso);
+        repository.insert(curso);
     }
 
     public void update(Curso curso) {
-        mRepository.update(curso);
+        repository.update(curso);
     }
 
     public void delete(Curso curso) {
-        mRepository.delete(curso);
+        repository.delete(curso);
+    }
+
+    public void deleteAllCursos() {
+        repository.deleteAllCursos();
+    }
+
+    public LiveData<Curso> getCursoById(int cursoId) {
+        return repository.getCursoById(cursoId);
+    }
+
+    public void deleteById(int cursoId) {
+        repository.deleteById(cursoId);
     }
 }

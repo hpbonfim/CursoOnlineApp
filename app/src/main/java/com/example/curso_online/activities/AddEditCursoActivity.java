@@ -1,4 +1,5 @@
 package com.example.curso_online.activities;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -41,11 +42,11 @@ public class AddEditCursoActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         if (intent.hasExtra(EXTRA_ID)) {
-            setTitle("Edit Course");
+            setTitle(R.string.edit_course);
             editTextNome.setText(intent.getStringExtra(EXTRA_NOME));
             editTextHoras.setText(String.valueOf(intent.getIntExtra(EXTRA_HORAS, 0)));
         } else {
-            setTitle("Add Course");
+            setTitle(R.string.add_course);
         }
 
         buttonSave.setOnClickListener(new View.OnClickListener() {
@@ -61,7 +62,7 @@ public class AddEditCursoActivity extends AppCompatActivity {
         int qtdeHoras = Integer.parseInt(editTextHoras.getText().toString());
 
         if (nomeCurso.trim().isEmpty() || qtdeHoras == 0) {
-            Toast.makeText(this, "Please insert a name and hours", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.please_insert, Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -76,10 +77,10 @@ public class AddEditCursoActivity extends AppCompatActivity {
             curso.setCursoId(id);
             cursoViewModel.update(curso);
             data.putExtra(EXTRA_ID, id);
-            Toast.makeText(this, "Course updated", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.course_updated, Toast.LENGTH_SHORT).show();
         } else {
             cursoViewModel.insert(curso);
-            Toast.makeText(this, "Course saved", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.course_saved, Toast.LENGTH_SHORT).show();
         }
 
         setResult(RESULT_OK, data);

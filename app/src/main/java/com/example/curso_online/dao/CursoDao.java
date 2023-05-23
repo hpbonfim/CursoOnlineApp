@@ -15,6 +15,9 @@ public interface CursoDao {
     @Query("SELECT * FROM Curso")
     LiveData<List<Curso>> getAll();
 
+    @Query("SELECT * FROM Curso WHERE cursoId = :id")
+    LiveData<Curso> getCursoById(int id);
+
     @Insert
     void insert(Curso curso);
 
@@ -23,4 +26,10 @@ public interface CursoDao {
 
     @Delete
     void delete(Curso curso);
+
+    @Query("DELETE FROM Curso")
+    void deleteAllCursos();
+
+    @Query("DELETE FROM Curso WHERE cursoId = :cursoId")
+    void deleteById(int cursoId);
 }
