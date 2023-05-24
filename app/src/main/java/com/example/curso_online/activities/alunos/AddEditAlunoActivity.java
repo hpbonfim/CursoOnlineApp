@@ -3,6 +3,7 @@ package com.example.curso_online.activities.alunos;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,6 +18,8 @@ import com.example.curso_online.entities.Aluno;
 import com.example.curso_online.entities.Curso;
 import com.example.curso_online.viewmodel.AlunoViewModel;
 import com.example.curso_online.viewmodel.CursoViewModel;
+
+import java.util.List;
 
 public class AddEditAlunoActivity extends AppCompatActivity {
 
@@ -49,6 +52,17 @@ public class AddEditAlunoActivity extends AppCompatActivity {
         alunoViewModel = new ViewModelProvider(this, (ViewModelProvider.Factory) new ViewModelProvider.AndroidViewModelFactory(getApplication())).get(AlunoViewModel.class);
         cursoViewModel = new ViewModelProvider(this, (ViewModelProvider.Factory) new ViewModelProvider.AndroidViewModelFactory(getApplication())).get(CursoViewModel.class);
 
+        cursoViewModel.getAllCursos().observe(this, new Observer<List<Curso>>() {
+            @Override
+            public void onChanged(List<Curso> cursos) {
+                ArrayAdapter<Curso> adapter = new ArrayAdapter<>(
+                        AddEditAlunoActivity.this,
+                        android.R.layout.simple_dropdown_item_1line,
+                        cursos);
+                editTextCurso.setAdapter(adapter);
+            }
+        });
+
         Intent intent = getIntent();
         if (intent.hasExtra(EXTRA_ID)) {
             setTitle(R.string.edit_student);
@@ -69,16 +83,16 @@ public class AddEditAlunoActivity extends AppCompatActivity {
     }
     private void saveAluno() {
         String nomeAluno = editTextNome.getText().toString();
-        String cursoAluno = editTextCurso.getText().toString();
+        String cursoAlunoNome = editTextCurso.getText().toString();
         String emailAluno = editTextEmail.getText().toString();
         String telefoneAluno = editTextTelefone.getText().toString();
 
-        if (nomeAluno.trim().isEmpty() || cursoAluno.trim().isEmpty() || emailAluno.trim().isEmpty() || telefoneAluno.trim().isEmpty()) {
+        if (nomeAluno.trim().isEmpty() || cursoAlunoNome.trim().isEmpty() || emailAluno.trim().isEmpty() || telefoneAluno.trim().isEmpty()) {
             Toast.makeText(this, R.string.please_insert, Toast.LENGTH_SHORT).show();
             return;
         }
 
-        cursoViewModel.getCursoByName(cursoAluno).observe(this, new Observer<Curso>() {
+        cursoViewModel.getCursoByName(cursoAlunoNome).observe(this, new Observer<Curso>() {
             @Override
             public void onChanged(Curso curso) {
                 if (curso == null) {
@@ -90,7 +104,7 @@ public class AddEditAlunoActivity extends AppCompatActivity {
 
                 Intent data = new Intent();
                 data.putExtra(EXTRA_NOME, nomeAluno);
-                data.putExtra(EXTRA_CURSO, cursoAluno);
+                data.putExtra(EXTRA_CURSO, cursoAlunoNome);
                 data.putExtra(EXTRA_EMAIL, emailAluno);
                 data.putExtra(EXTRA_TELEFONE, telefoneAluno);
 
@@ -110,6 +124,5 @@ public class AddEditAlunoActivity extends AppCompatActivity {
             }
         });
     }
-
 
 }

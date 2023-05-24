@@ -14,6 +14,11 @@ public class Curso {
         this.qtdeHoras = qtdeHoras;
     }
 
+    @Override
+    public String toString() {
+        return nomeCurso;
+    }
+
     public int getCursoId() {
         return cursoId;
     }

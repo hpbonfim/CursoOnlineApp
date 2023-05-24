@@ -7,7 +7,7 @@
     <string name="save_course">Salvar Curso</string>
     <string name="add_course">Adicionar Curso</string>
     <string name="on_changed">Alterado</string>
-    <string name="please_insert">Por favor, insira um nome e horas</string>
+    <string name="please_insert">Por favor, insira todos os dados</string>
     <string name="course_saved">Curso salvo</string>
     <string name="edit_course">Editar Curso</string>
     <string name="course_updated">Curso atualizado</string>
