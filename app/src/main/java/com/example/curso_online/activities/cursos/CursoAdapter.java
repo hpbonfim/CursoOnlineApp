@@ -1,4 +1,4 @@
-package com.example.curso_online.adapters;
+package com.example.curso_online.activities.cursos;
 
 import android.view.LayoutInflater;
 import android.view.View;

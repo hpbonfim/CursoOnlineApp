@@ -31,10 +31,6 @@ public class CursoViewModel extends AndroidViewModel {
         repository.update(curso);
     }
 
-    public void delete(Curso curso) {
-        repository.delete(curso);
-    }
-
     public void deleteAllCursos() {
         repository.deleteAllCursos();
     }

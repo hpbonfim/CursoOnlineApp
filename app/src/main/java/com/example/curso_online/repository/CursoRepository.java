@@ -35,12 +35,6 @@ public class CursoRepository {
         });
     }
 
-    public void delete(Curso curso) {
-        AppDatabase.databaseWriteExecutor.execute(() -> {
-            cursoDao.delete(curso);
-        });
-    }
-
     public void deleteAllCursos() {
         AppDatabase.databaseWriteExecutor.execute(() -> {
             cursoDao.deleteAllCursos();

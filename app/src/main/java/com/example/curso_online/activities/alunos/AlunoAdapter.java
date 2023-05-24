@@ -1,5 +1,5 @@
 
-package com.example.curso_online.adapters;
+package com.example.curso_online.activities.alunos;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -49,7 +49,7 @@ public class AlunoAdapter extends RecyclerView.Adapter<AlunoAdapter.AlunoHolder>
             if (curso != null) {
                 holder.textViewDescription.setText(curso.getNomeCurso());
             } else {
-                holder.textViewDescription.setText("Curso não encontrado");  // ou qualquer texto padrão
+                holder.textViewDescription.setText(R.string.course_not_found);
             }
         });
     }

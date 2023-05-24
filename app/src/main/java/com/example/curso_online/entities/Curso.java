@@ -26,15 +26,7 @@ public class Curso {
         return nomeCurso;
     }
 
-    public void setNomeCurso(String nomeCurso) {
-        this.nomeCurso = nomeCurso;
-    }
-
     public int getQtdeHoras() {
         return qtdeHoras;
-    }
-
-    public void setQtdeHoras(int qtdeHoras) {
-        this.qtdeHoras = qtdeHoras;
     }
 }

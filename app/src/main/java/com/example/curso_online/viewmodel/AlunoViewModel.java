@@ -31,16 +31,8 @@ public class AlunoViewModel extends AndroidViewModel {
         repository.update(aluno);
     }
 
-    public void delete(Aluno aluno) {
-        repository.delete(aluno);
-    }
-
     public void deleteAllAlunos() {
         repository.deleteAllAlunos();
-    }
-
-    public LiveData<Aluno> getAlunoById(int alunoId) {
-        return repository.getAlunoById(alunoId);
     }
 
     public void deleteById(int alunoId) {

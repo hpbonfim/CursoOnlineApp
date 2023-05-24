@@ -35,20 +35,10 @@ public class AlunoRepository {
         });
     }
 
-    public void delete(Aluno aluno) {
-        AppDatabase.databaseWriteExecutor.execute(() -> {
-            alunoDao.delete(aluno);
-        });
-    }
-
     public void deleteAllAlunos() {
         AppDatabase.databaseWriteExecutor.execute(() -> {
             alunoDao.deleteAllAlunos();
         });
-    }
-
-    public LiveData<Aluno> getAlunoById(int alunoId) {
-        return alunoDao.getAlunoById(alunoId);
     }
 
     public void deleteById(int alunoId) {

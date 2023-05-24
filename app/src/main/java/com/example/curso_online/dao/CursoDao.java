@@ -27,9 +27,6 @@ public interface CursoDao {
     @Update
     void update(Curso curso);
 
-    @Delete
-    void delete(Curso curso);
-
     @Query("DELETE FROM Curso")
     void deleteAllCursos();
 

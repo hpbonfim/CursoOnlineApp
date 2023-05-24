@@ -17,7 +17,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.curso_online.R;
 import com.example.curso_online.entities.Aluno;
-import com.example.curso_online.adapters.AlunoAdapter;
 import com.example.curso_online.entities.Curso;
 import com.example.curso_online.viewmodel.AlunoViewModel;
 import com.example.curso_online.viewmodel.CursoViewModel;

@@ -31,31 +31,15 @@ public class Aluno {
         return cursoId;
     }
 
-    public void setCursoId(int cursoId) {
-        this.cursoId = cursoId;
-    }
-
     public String getNomeAluno() {
         return nomeAluno;
     }
 
-    public void setNomeAluno(String nomeAluno) {
-        this.nomeAluno = nomeAluno;
-    }
-
-    public String getEmailAluno() {
+     public String getEmailAluno() {
         return emailAluno;
-    }
-
-    public void setEmailAluno(String emailAluno) {
-        this.emailAluno = emailAluno;
     }
 
     public String getTelefoneAluno() {
         return telefoneAluno;
-    }
-
-    public void setTelefoneAluno(String telefoneAluno) {
-        this.telefoneAluno = telefoneAluno;
     }
 }

@@ -25,9 +25,6 @@ public interface AlunoDao {
     @Update
     void update(Aluno aluno);
 
-    @Delete
-    void delete(Aluno aluno);
-
     @Query("DELETE FROM Aluno")
     void deleteAllAlunos();
 

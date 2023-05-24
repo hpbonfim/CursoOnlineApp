@@ -33,7 +33,7 @@
     <string name="delete_all_students_message">Deseja deletar todos os estudantes?</string>
     <string name="all_students_deleted">Todos os estudantes deletados.</string>
     <string name="aluno_name_hint">Nome</string>
-    <string name="save_student">Criar Estudante</string>
+    <string name="save_student">Salvar Estudante</string>
     <string name="aluno_email_hint">Email</string>
     <string name="aluno_telefone_hint">Telefone</string>
     <string name="aluno_curso_hint">Curso</string>
