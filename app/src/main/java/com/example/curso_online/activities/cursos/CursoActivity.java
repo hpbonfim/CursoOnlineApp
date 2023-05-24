@@ -1,6 +1,6 @@
-package com.example.curso_online.activities;
+package com.example.curso_online.activities.cursos;
 
-import static com.example.curso_online.activities.AddEditCursoActivity.EDIT_CURSO_REQUEST;
+import static com.example.curso_online.activities.cursos.AddEditCursoActivity.EDIT_CURSO_REQUEST;
 
 import android.content.DialogInterface;
 import android.content.Intent;

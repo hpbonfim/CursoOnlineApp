@@ -20,9 +20,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.AddEditCursoActivity" />
-        <activity android:name=".activities.CursoActivity" />
-
+        <activity android:name=".activities.cursos.AddEditCursoActivity" />
+        <activity android:name=".activities.cursos.CursoActivity" />
+        <activity android:name=".activities.alunos.AddEditAlunoActivity" />
+        <activity android:name=".activities.alunos.AlunoActivity" />
     </application>
 
 </manifest>

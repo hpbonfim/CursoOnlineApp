@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/edit_text_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/aluno_name_hint" />
+
+    <AutoCompleteTextView
+        android:id="@+id/auto_complete_curso"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/aluno_curso_hint" />
+
+    <EditText
+        android:id="@+id/edit_text_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/aluno_email_hint" />
+
+    <EditText
+        android:id="@+id/edit_text_telefone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/aluno_telefone_hint" />
+
+    <Button
+        android:id="@+id/button_save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/save_student" />
+
+</LinearLayout>

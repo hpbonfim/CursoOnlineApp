@@ -51,6 +51,11 @@ public class CursoRepository {
         return cursoDao.getCursoById(cursoId);
     }
 
+    public LiveData<Curso> getCursoByName(String cursoName) {
+        return cursoDao.getCursoByName(cursoName);
+    }
+
+
     public void deleteById(int cursoId) {
         AppDatabase.databaseWriteExecutor.execute(() -> {
             cursoDao.deleteById(cursoId);

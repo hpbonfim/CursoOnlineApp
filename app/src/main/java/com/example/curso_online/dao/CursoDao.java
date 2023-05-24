@@ -18,6 +18,9 @@ public interface CursoDao {
     @Query("SELECT * FROM Curso WHERE cursoId = :id")
     LiveData<Curso> getCursoById(int id);
 
+    @Query("SELECT * FROM Curso WHERE nomeCurso = :cursoName LIMIT 1")
+    LiveData<Curso> getCursoByName(String cursoName);
+
     @Insert
     void insert(Curso curso);
 

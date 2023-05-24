@@ -23,4 +23,19 @@
     <string name="yes">Sim</string>
     <string name="delete_course_message">Tem certeza que deseja deletar este curso?</string>
     <string name="delete_all_courses_message">Deletar todos os cursos?</string>
+    <string name="edit_student">Editar Estudante</string>
+    <string name="add_student">Add Estudante</string>
+    <string name="student_updated">Estudante Atulizado</string>
+    <string name="student_saved">Estudante Salvo</string>
+    <string name="delete_student">Deletar estudante?</string>
+    <string name="delete_student_message">Deseja deletar o estudante?</string>
+    <string name="student_deleted">Estudante deletado</string>
+    <string name="delete_all_students_message">Deseja deletar todos os estudantes?</string>
+    <string name="all_students_deleted">Todos os estudantes deletados.</string>
+    <string name="aluno_name_hint">Nome</string>
+    <string name="save_student">Criar Estudante</string>
+    <string name="aluno_email_hint">Email</string>
+    <string name="aluno_telefone_hint">Telefone</string>
+    <string name="aluno_curso_hint">Curso</string>
+    <string name="course_not_found">Curso Não Encontrado</string>
 </resources>

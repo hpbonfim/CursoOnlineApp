@@ -43,6 +43,11 @@ public class CursoViewModel extends AndroidViewModel {
         return repository.getCursoById(cursoId);
     }
 
+    public LiveData<Curso> getCursoByName(String cursoName) {
+        return repository.getCursoByName(cursoName);
+    }
+
+
     public void deleteById(int cursoId) {
         repository.deleteById(cursoId);
     }
