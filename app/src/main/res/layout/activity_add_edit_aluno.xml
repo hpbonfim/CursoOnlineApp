@@ -9,25 +9,25 @@
         android:id="@+id/edit_text_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/aluno_name_hint" />
+        android:hint="@string/student_name_hint" />
 
     <AutoCompleteTextView
         android:id="@+id/auto_complete_curso"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/aluno_curso_hint" />
+        android:hint="@string/student_course_hint" />
 
     <EditText
         android:id="@+id/edit_text_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/aluno_email_hint" />
+        android:hint="@string/student_email_hint" />
 
     <EditText
         android:id="@+id/edit_text_telefone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/aluno_telefone_hint" />
+        android:hint="@string/student_phone_hint" />
 
     <Button
         android:id="@+id/button_save"

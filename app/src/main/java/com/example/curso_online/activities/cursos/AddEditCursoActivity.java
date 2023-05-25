@@ -20,12 +20,9 @@ public class AddEditCursoActivity extends AppCompatActivity {
     private Button buttonSave;
     private CursoViewModel cursoViewModel;
 
-    public static final String EXTRA_ID =
-            "com.example.curso_online.EXTRA_ID";
-    public static final String EXTRA_NOME =
-            "com.example.curso_online.EXTRA_NOME";
-    public static final String EXTRA_HORAS =
-            "com.example.curso_online.EXTRA_HORAS";
+    public static final String EXTRA_ID = "com.example.curso_online.EXTRA_ID";
+    public static final String EXTRA_NOME = "com.example.curso_online.EXTRA_NOME";
+    public static final String EXTRA_HORAS = "com.example.curso_online.EXTRA_HORAS";
     public static final int EDIT_CURSO_REQUEST = 2;
 
 
@@ -60,8 +57,9 @@ public class AddEditCursoActivity extends AppCompatActivity {
     private void saveCurso() {
         String nomeCurso = editTextNome.getText().toString();
         int qtdeHoras = Integer.parseInt(editTextHoras.getText().toString());
+        Boolean missindFields = nomeCurso.trim().isEmpty() || qtdeHoras == 0;
 
-        if (nomeCurso.trim().isEmpty() || qtdeHoras == 0) {
+        if (missindFields) {
             Toast.makeText(this, R.string.please_insert, Toast.LENGTH_SHORT).show();
             return;
         }

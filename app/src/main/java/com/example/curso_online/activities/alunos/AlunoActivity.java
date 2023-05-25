@@ -108,7 +108,6 @@ public class AlunoActivity extends AppCompatActivity {
         alunoViewModel.getAllAlunos().observe(this, new Observer<List<Aluno>>() {
             @Override
             public void onChanged(List<Aluno> alunos) {
-                // Update the RecyclerView
                 adapter.setAlunos(alunos);
             }
         });

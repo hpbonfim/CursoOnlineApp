@@ -71,21 +71,22 @@ public class CursoActivity extends AppCompatActivity {
             @Override
             public void onItemLongClick(Curso curso) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(CursoActivity.this);
-                builder.setTitle(R.string.delete_course)
-                        .setMessage(R.string.delete_course_message)
-                        .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                cursoViewModel.deleteById(curso.getCursoId());
-                                Toast.makeText(CursoActivity.this, R.string.course_deleted, Toast.LENGTH_SHORT).show();
-                            }
-                        })
-                        .setNegativeButton(R.string.no, null)
-                        .show();
+                builder
+                    .setTitle(R.string.delete_course)
+                    .setMessage(R.string.delete_course_message)
+                    .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            cursoViewModel.deleteById(curso.getCursoId());
+                            Toast.makeText(CursoActivity.this, R.string.course_deleted, Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .setNegativeButton(R.string.no, null)
+                    .show();
             }
         });
 
-          cursoViewModel = new ViewModelProvider(this, (ViewModelProvider.Factory) new ViewModelProvider.AndroidViewModelFactory(getApplication())).get(CursoViewModel.class);
+        cursoViewModel = new ViewModelProvider(this, (ViewModelProvider.Factory) new ViewModelProvider.AndroidViewModelFactory(getApplication())).get(CursoViewModel.class);
 
         cursoViewModel.getAllCursos().observe(this, new Observer<List<Curso>>() {
             @Override

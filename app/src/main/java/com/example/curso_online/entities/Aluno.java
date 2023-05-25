@@ -35,7 +35,7 @@ public class Aluno {
         return nomeAluno;
     }
 
-     public String getEmailAluno() {
+    public String getEmailAluno() {
         return emailAluno;
     }
 

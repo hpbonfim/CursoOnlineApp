@@ -43,7 +43,6 @@ public class CursoViewModel extends AndroidViewModel {
         return repository.getCursoByName(cursoName);
     }
 
-
     public void deleteById(int cursoId) {
         repository.deleteById(cursoId);
     }

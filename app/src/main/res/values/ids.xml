@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <item type="id" name="btn_manage_courses" />
     <item type="id" name="edit_text_title" />
     <item type="id" name="edit_text_hours" />
-    <item type="id" name="button_save" />
-    <item type="id" name="button_add_course" />
+    <item type="id" name="edit_text_telefone" />
+    <item type="id" name="edit_text_email" />
+    <item type="id" name="auto_complete_curso" />
     <item type="id" name="recycler_view" />
     <item type="id" name="text_view_title" />
     <item type="id" name="text_view_description" />
+    <item type="id" name="btn_manage_courses" />
+    <item type="id" name="btn_manage_students" />
+    <item type="id" name="button_save" />
+    <item type="id" name="button_delete" />
+    <item type="id" name="button_add_course" />
+    <item type="id" name="button_add_student" />
+    <item type="id" name="fab_delete_all_courses" />
+    <item type="id" name="fab_delete_all_students" />
 </resources>

@@ -86,8 +86,9 @@ public class AddEditAlunoActivity extends AppCompatActivity {
         String cursoAlunoNome = editTextCurso.getText().toString();
         String emailAluno = editTextEmail.getText().toString();
         String telefoneAluno = editTextTelefone.getText().toString();
+        Boolean missindFields = nomeAluno.trim().isEmpty() || cursoAlunoNome.trim().isEmpty() || emailAluno.trim().isEmpty() || telefoneAluno.trim().isEmpty();
 
-        if (nomeAluno.trim().isEmpty() || cursoAlunoNome.trim().isEmpty() || emailAluno.trim().isEmpty() || telefoneAluno.trim().isEmpty()) {
+        if (missindFields) {
             Toast.makeText(this, R.string.please_insert, Toast.LENGTH_SHORT).show();
             return;
         }

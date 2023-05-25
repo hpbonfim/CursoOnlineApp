@@ -44,7 +44,6 @@ public class AlunoAdapter extends RecyclerView.Adapter<AlunoAdapter.AlunoHolder>
         Aluno currentAluno = alunos.get(position);
         holder.textViewTitle.setText(currentAluno.getNomeAluno());
 
-        // Agora, busque o nome do curso assincronamente
         cursoViewModel.getCursoById(currentAluno.getCursoId()).observe(lifecycleOwner, curso -> {
             if (curso != null) {
                 holder.textViewDescription.setText(curso.getNomeCurso());
