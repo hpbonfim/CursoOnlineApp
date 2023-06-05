@@ -32,9 +32,12 @@ public class CursoAdapter extends RecyclerView.Adapter<CursoAdapter.CursoHolder>
     @Override
     public void onBindViewHolder(@NonNull CursoHolder holder, int position) {
         Curso currentCurso = cursos.get(position);
-        holder.textViewTitle.setText(currentCurso.getNomeCurso());
-        holder.textViewDescription.setText(String.valueOf(currentCurso.getQtdeHoras()));
+        String courseNameLabel = holder.itemView.getContext().getString(R.string.course_name_list_label);
+        String courseHoursLabel = holder.itemView.getContext().getString(R.string.course_hours_list_label);
+        holder.textViewTitle.setText(courseNameLabel + " " + currentCurso.getNomeCurso());
+        holder.textViewDescription.setText(courseHoursLabel + " " + String.valueOf(currentCurso.getQtdeHoras()));
     }
+
 
     @Override
     public int getItemCount() {

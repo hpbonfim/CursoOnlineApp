@@ -16,9 +16,6 @@ public interface AlunoDao {
     @Query("SELECT * FROM Aluno")
     LiveData<List<Aluno>> getAll();
 
-    @Query("SELECT * FROM Aluno WHERE alunoId = :id")
-    LiveData<Aluno> getAlunoById(int id);
-
     @Insert
     void insert(Aluno aluno);
 

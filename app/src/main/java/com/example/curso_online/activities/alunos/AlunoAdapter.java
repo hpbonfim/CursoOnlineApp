@@ -34,19 +34,20 @@ public class AlunoAdapter extends RecyclerView.Adapter<AlunoAdapter.AlunoHolder>
     @NonNull
     @Override
     public AlunoHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.aluno_item, parent, false);
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.aluno_item, parent, false);
         return new AlunoHolder(itemView);
     }
 
     @Override
     public void onBindViewHolder(@NonNull AlunoHolder holder, int position) {
         Aluno currentAluno = alunos.get(position);
-        holder.textViewTitle.setText(currentAluno.getNomeAluno());
+        String studentNameLabel = holder.itemView.getContext().getString(R.string.student_name_list_label);
+        holder.textViewTitle.setText(studentNameLabel + " " + currentAluno.getNomeAluno());
 
         cursoViewModel.getCursoById(currentAluno.getCursoId()).observe(lifecycleOwner, curso -> {
             if (curso != null) {
-                holder.textViewDescription.setText(curso.getNomeCurso());
+                String courseNameLabel = holder.itemView.getContext().getString(R.string.course_name_list_label);
+                holder.textViewDescription.setText(courseNameLabel + " " + curso.getNomeCurso());
             } else {
                 holder.textViewDescription.setText(R.string.course_not_found);
             }

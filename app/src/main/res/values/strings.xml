@@ -37,4 +37,7 @@
     <string name="please_insert">Por favor, insira todos os dados</string>
     <string name="no">Não</string>
     <string name="yes">Sim</string>
+    <string name="course_hours_list_label">"Horas: "</string>
+    <string name="course_name_list_label">"Curso: "</string>
+    <string name="student_name_list_label">"Nome: "</string>
 </resources>
